@@ -8,12 +8,12 @@
   },
   "author": {
     "name" : "Johnny Hauser",
-    "email" : "johnnyhauser@gmail.com",
+    "email" : "johnnyhauser@gmail.com"
   },
   "repository": {
     "type" : "git",
     "url" : "http://github.com/m59peacemaker/massquire.git"
-  }
+  },
   "license": "MIT",
   "devDependencies": {
     "tap-spec": "^2.2.2",
