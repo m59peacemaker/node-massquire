@@ -13,35 +13,6 @@ npm install massquire
 var massquire = require('massquire');
 ```
 
-### Writing queries
-```javascript
-var query = "SELECT ::something FROM ::table WHERE ::table.::whatever = :value";
-var params = {
-    something: 'title',
-      table: 'foo',
-        whatever: 'id',
-          value: 123
-};
-
-// SELECT `title` FROM `foo` WHERE `foo`.`id` = 123;
-```
-
-### Manual escaping
-
-```javascript
-query = npEscape(query, params);
-
-connection.query(query);
-```
-
-### Setting queryFormat
-
-```javascript
-connection.config.queryFormat = npEscape;
-
-connection.query(query, params);
-```
-
 ### Parameters
 
 #### dirname
