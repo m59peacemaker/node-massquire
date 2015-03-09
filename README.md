@@ -52,10 +52,10 @@ Default: Strip .js or .json and camelCase
 Function that recieves the filename for each module and should return the keyname where the module will be stored to the object.
 
 ```javascript
-  function(filename) {
-    // format the filename
-    return key;
-  }
+function(filename) {
+  // format the filename
+  return key;
+}
 ```
 
 ##### opts.resolve
@@ -65,7 +65,7 @@ Type: `Function`
 Function that receives each required module and should return the desired module value.
 
 ```javascript
-  function(module) {
-    return module();
-  }
+function(module) {
+  return module();
+}
 ```
