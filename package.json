@@ -1,0 +1,25 @@
+{
+  "name": "massquire",
+  "version": "1.0.0",
+  "description": "Requires directories of modules into objects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js | tap-spec"
+  },
+  "author": {
+    "name" : "Johnny Hauser",
+    "email" : "johnnyhauser@gmail.com",
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/m59peacemaker/massquire.git"
+  }
+  "license": "MIT",
+  "devDependencies": {
+    "tap-spec": "^2.2.2",
+    "tape": "^3.5.0"
+  },
+  "dependencies": {
+    "underscore.string": "^3.0.3"
+  }
+}
