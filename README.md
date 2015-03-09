@@ -27,7 +27,7 @@ Type: `Object`
 
 ##### opts.recursive
 
-Type: 'Boolean'
+Type: 'Boolean'  
 Default: true
 
 Requires all modules in the given directory and its subdirectories by default. Set `recursive` to `false` to require only the given directory.
@@ -46,7 +46,7 @@ Filenames that match this pattern will not be required.
 
 ##### opts.map
 
-Type: Function
+Type: Function  
 Default: Strip .js or .json and camelCase
 
 Function that recieves the filename for each module and should return the keyname where the module will be stored to the object.
