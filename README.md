@@ -27,26 +27,26 @@ Type: `Object`
 
 ##### opts.recursive
 
-Type: 'Boolean'  
+Type: `Boolean`  
 Default: true
 
 Requires all modules in the given directory and its subdirectories by default. Set `recursive` to `false` to require only the given directory.
 
 ##### opts.match
 
-Type: Array of RegEx
+Type: `Array` of `RegEx`
 
 Only filenames that match this pattern will be required.
 
 ##### opts.exclude
 
-Type: Array of RegEx
+Type: `Array` of `RegEx`
 
 Filenames that match this pattern will not be required.
 
 ##### opts.map
 
-Type: Function  
+Type: `Function`  
 Default: Strip .js or .json and camelCase
 
 Function that recieves the filename for each module and should return the keyname where the module will be stored to the object.
@@ -60,7 +60,7 @@ Function that recieves the filename for each module and should return the keynam
 
 ##### opts.resolve
 
-Type: Function
+Type: `Function`
 
 Function that receives each required module and should return the desired module value.
 
