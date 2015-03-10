@@ -2,6 +2,13 @@
   "name": "massquire",
   "version": "1.0.0",
   "description": "Requires directories of modules into objects.",
+  "keywords": [
+    "require",
+    "module",
+    "directory",
+    "object",
+    "recursive"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js | tap-spec"
