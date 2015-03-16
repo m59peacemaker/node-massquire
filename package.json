@@ -1,6 +1,6 @@
 {
   "name": "massquire",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Requires directories of modules into objects.",
   "keywords": [
     "require",

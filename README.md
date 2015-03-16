@@ -8,7 +8,6 @@ npm install massquire
 ```
 
 ## Usage
-
 ```javascript
 var massquire = require('massquire');
 ```
@@ -25,31 +24,43 @@ The name of the directory (path) that should be required.
 
 Type: `Object`
 
-##### opts.recursive
+##### opts.recurse
 
 Type: `Boolean`  
 Default: true
 
-Requires all modules in the given directory and its subdirectories by default. Set `recursive` to `false` to require only the given directory.
+Requires all modules in the given directory and its subdirectories by default. Set `recurse` to `false` to require only the given directory.
 
-##### opts.match
+##### opts.include
 
-Type: `Array` of `RegEx`
+Type: Function
 
-Only filenames that match this pattern will be required.
+Function that receives the full path of a file and should return `true` to include the file.
 
 ##### opts.exclude
 
-Type: `Array` of `RegEx`
+Type: Function
 
-Filenames that match this pattern will not be required.
+Function that receives the full path of a file and should return `true` to exclude the file.
+
+##### opts.includeDir
+
+Type: Function
+
+Function that receives the full path of a directory and should return `true` to include the directory.
+
+##### opts.excludeDir
+
+Type: Function
+
+Function that receives the full path of a directory and should return `true` to exclude the directory.
 
 ##### opts.map
 
 Type: `Function`  
 Default: Strip .js or .json and camelCase
 
-Function that recieves the filename for each module and should return the keyname where the module will be stored to the object.
+Function that receives the filename for each module and should return the keyname where the module will be stored to the object.
 
 ```javascript
 function(filename) {

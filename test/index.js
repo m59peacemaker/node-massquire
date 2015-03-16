@@ -11,22 +11,22 @@ test("returns object if no modules found", function(t) {
 
 test("recursively builds object of modules from files", function(t) {
   t.plan(2);
-  var modules = massquire(moduleDirname);
+  var modules = massquire(moduleDirname+"/require");
   t.equal(modules.foo, "foo");
   t.equal(modules.sub.foo, "foo");
 });
 
 test("optionally isn't recursive", function(t) {
   t.plan(1);
-  var modules = massquire(moduleDirname, {
-    recursive: false
+  var modules = massquire(moduleDirname+"/require", {
+    recurse: false
   });
   t.false(modules.sub);
 });
 
 test("applies resolve fn to module value", function(t) {
   t.plan(1);
-  var modules = massquire(moduleDirname, {
+  var modules = massquire(moduleDirname+"/resolve", {
     resolve: function(module) {
       if (typeof module === "string") {
         return module.toUpperCase();
@@ -39,34 +39,64 @@ test("applies resolve fn to module value", function(t) {
 
 test("camelCases and strips .js and .json from keys by default", function(t) {
   t.plan(1);
-  var modules = massquire(moduleDirname+"/format");
-  t.equal(Object.keys(modules)[0], "formatThisModule");
+  var modules = massquire(moduleDirname+"/map");
+  t.equal(Object.keys(modules)[0], "mapThis");
 });
 
 test("applies opts.map fn to property names", function(t) {
   t.plan(1);
-  var modules = massquire(moduleDirname, {
+  var modules = massquire(moduleDirname+"/map", {
     map: function(prop) {
       return prop.toUpperCase();
     }
   });
-  t.true(~Object.keys(modules).indexOf("FOO.JS"));
+  t.true(~Object.keys(modules).indexOf("MAP-THIS.JS"));
 });
 
-test("optionally excludes directories", function(t) {
-  t.plan(1);
-  var modules = massquire(moduleDirname, {
-    exclude: [/^\./, "match.js"]
-  });
-  t.false(modules.exclude);
-});
-
-test("only includes modules that match opts.match", function(t) {
+test("optionally includes only matching directories", function(t) {
   t.plan(2);
-  var modules = massquire(moduleDirname, {
-    match: ["match.js"]
+  var modules = massquire(moduleDirname+"/match-dir", {
+    includeDir: function(path) {
+      var p = path.split("/");
+      return p[p.length-1] === "foo";
+    }
   });
-  var keys = Object.keys(modules);
-  t.equal(keys.length, 1);
-  t.equal(keys[0], "match");
+  t.true(modules.foo);
+  t.false(modules.bar);
+});
+
+test("optionally excludes matching directories", function(t) {
+  t.plan(2);
+  var modules = massquire(moduleDirname+"/match-dir", {
+    excludeDir: function(path) {
+      var p = path.split("/");
+      return p[p.length-1] === "bar";
+    }
+  });
+  t.true(modules.foo);
+  t.false(modules.bar);
+});
+
+test("optionally includes only matching files", function(t) {
+  t.plan(2);
+  var modules = massquire(moduleDirname+"/match-file", {
+    include: function(path) {
+      var p = path.split("/");
+      return p[p.length-1] === "foo.js";
+    }
+  });
+  t.true(modules.foo);
+  t.false(modules.bar);
+});
+
+test("optionally excludes matching files", function(t) {
+  t.plan(2);
+  var modules = massquire(moduleDirname+"/match-file", {
+    exclude: function(path) {
+      var p = path.split("/");
+      return p[p.length-1] === "bar.js";
+    }
+  });
+  t.true(modules.foo);
+  t.false(modules.bar);
 });
