@@ -10,6 +10,8 @@ npm install massquire
 ## Usage
 ```javascript
 var massquire = require('massquire');
+
+var modules = massquire(dirname, opts);
 ```
 
 ### Parameters
