@@ -35,25 +35,25 @@ Requires all modules in the given directory and its subdirectories by default. S
 
 ##### opts.include
 
-Type: Function
+Type: `Function`
 
 Function that receives the full path of a file and should return `true` to include the file.
 
 ##### opts.exclude
 
-Type: Function
+Type: `Function`
 
 Function that receives the full path of a file and should return `true` to exclude the file.
 
 ##### opts.includeDir
 
-Type: Function
+Type: `Function`
 
 Function that receives the full path of a directory and should return `true` to include the directory.
 
 ##### opts.excludeDir
 
-Type: Function
+Type: `Function`
 
 Function that receives the full path of a directory and should return `true` to exclude the directory.
 
