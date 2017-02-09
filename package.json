@@ -1,6 +1,6 @@
 {
   "name": "massquire",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Requires directories of modules into objects.",
   "keywords": [
     "require",
@@ -10,18 +10,18 @@
     "recursive"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "http://github.com/m59peacemaker/node-massquire"
+    "type": "git",
+    "url": "http://github.com/m59peacemaker/node-massquire"
   },
   "author": {
-    "name" : "Johnny Hauser",
-    "email" : "johnnyhauser@gmail.com"
+    "name": "Johnny Hauser",
+    "email": "johnnyhauser@gmail.com"
   },
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js | tap-spec"
   },
-  "license": "MIT",
+  "license": "CC0-1.0",
   "devDependencies": {
     "tap-spec": "^2.2.2",
     "tape": "^3.5.0"
